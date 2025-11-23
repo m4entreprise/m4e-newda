@@ -137,7 +137,7 @@ onMounted(() => {
                                 v-model="form.phone"
                                 required
                                 class="w-full rounded-lg border border-white/10 bg-black/20 px-4 py-3 text-agency-cream placeholder-white/20 focus:border-agency-electric focus:outline-none focus:ring-1 focus:ring-agency-electric"
-                                placeholder="+33 6 12 34 56 78"
+                                placeholder="+32 4 12 34 56 78"
                             />
                         </div>
 
