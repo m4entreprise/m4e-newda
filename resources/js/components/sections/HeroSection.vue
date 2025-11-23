@@ -4,12 +4,11 @@ import { onMounted, ref } from 'vue';
 const videoRef = ref<HTMLVideoElement | null>(null);
 
 const clients = [
-    { name: 'Client 1', logo: '/images/clients/client-1.png' },
-    { name: 'Client 2', logo: '/images/clients/client-2.png' },
-    { name: 'Client 3', logo: '/images/clients/client-3.png' },
-    { name: 'Client 4', logo: '/images/clients/client-4.png' },
-    { name: 'Client 5', logo: '/images/clients/client-5.png' },
-    { name: 'Client 6', logo: '/images/clients/client-6.png' },
+    { name: 'Biokin', logo: '/images/logos/biokin.webp' },
+    { name: 'Conulex', logo: '/images/logos/conulex.png' },
+    { name: 'Dusart', logo: '/images/logos/dusart.png' },
+    { name: 'Verifresh', logo: '/images/logos/verifresh.png' },
+    { name: 'Fitness Education', logo: '/images/logos/fitness-education.png' },
 ];
 
 onMounted(() => {
@@ -84,7 +83,7 @@ onMounted(() => {
                     <p class="mb-6 font-sans text-sm font-bold uppercase tracking-wider text-agency-cream/80">
                         Ils nous font confiance
                     </p>
-                    <div class="grid grid-cols-2 items-center gap-8 md:grid-cols-3 lg:grid-cols-6">
+                    <div class="grid grid-cols-2 items-center gap-8 md:grid-cols-5">
                         <div
                             v-for="client in clients"
                             :key="client.name"
