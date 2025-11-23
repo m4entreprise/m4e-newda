@@ -37,7 +37,7 @@ onMounted(() => {
             >
                 <!-- Address -->
                 <div class="text-center md:text-left">
-                    <h3 class="mb-3 font-sans text-sm font-semibold uppercase tracking-wider text-agency-navy/70">
+                    <h3 class="mb-3 font-sans text-sm font-semibold uppercase tracking-wider text-agency-navy">
                         Adresse
                     </h3>
                     <p class="font-sans text-lg text-agency-navy">
@@ -48,7 +48,7 @@ onMounted(() => {
 
                 <!-- Contact -->
                 <div class="text-center">
-                    <h3 class="mb-3 font-sans text-sm font-semibold uppercase tracking-wider text-agency-navy/70">
+                    <h3 class="mb-3 font-sans text-sm font-semibold uppercase tracking-wider text-agency-navy">
                         Contact
                     </h3>
                     <p class="font-sans text-lg text-agency-navy">
@@ -70,7 +70,7 @@ onMounted(() => {
 
                 <!-- Social -->
                 <div class="text-center md:text-right">
-                    <h3 class="mb-3 font-sans text-sm font-semibold uppercase tracking-wider text-agency-navy/70">
+                    <h3 class="mb-3 font-sans text-sm font-semibold uppercase tracking-wider text-agency-navy">
                         Suivez-nous
                     </h3>
                     <div class="flex justify-center gap-4 md:justify-end">
