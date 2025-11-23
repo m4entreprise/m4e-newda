@@ -9,6 +9,7 @@ const clients = [
     { name: 'Dusart', logo: '/images/logos/dusart.png' },
     { name: 'Verifresh', logo: '/images/logos/verifresh.png' },
     { name: 'Fitness Education', logo: '/images/logos/fitness-education.png' },
+    { name: 'Kreate', logo: '/images/logos/kreate.png' },
 ];
 
 onMounted(() => {
@@ -83,7 +84,7 @@ onMounted(() => {
                     <p class="mb-6 font-sans text-sm font-bold uppercase tracking-wider text-agency-cream/80">
                         Ils nous font confiance
                     </p>
-                    <div class="grid grid-cols-2 items-center gap-8 md:grid-cols-5">
+                    <div class="grid grid-cols-2 items-center gap-8 md:grid-cols-3 lg:grid-cols-6">
                         <div
                             v-for="client in clients"
                             :key="client.name"

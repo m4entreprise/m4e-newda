@@ -10,7 +10,7 @@ const team = [
         id: 1,
         name: 'Thomas Filograna',
         role: 'Co-Founder & CEO',
-        image: '/images/team-1.jpg',
+        image: '/images/thomas-filograna.jpeg',
         hobbyImage: '/images/team-1-hobby.jpg',
         hobby: 'Littérature',
     },
@@ -36,7 +36,7 @@ const team = [
         role: 'Technician',
         image: '/images/team-4.jpg',
         hobbyImage: '/images/team-4-hobby.jpg',
-        hobby: 'Composition musicale',
+        hobby: 'Cuisine',
     },
     {
         id: 5,
@@ -44,7 +44,7 @@ const team = [
         role: 'Technician',
         image: '/images/team-5.jpg',
         hobbyImage: '/images/team-5-hobby.jpg',
-        hobby: 'Jeux-vidéo',
+        hobby: 'Randonnée',
     },
 ];
 
@@ -104,7 +104,7 @@ onMounted(() => {
                             <img
                                 :src="member.image"
                                 :alt="member.name"
-                                class="absolute inset-0 h-full w-full object-cover grayscale transition-opacity duration-500 group-hover:opacity-0"
+                                class="absolute inset-0 h-full w-full object-cover transition-all duration-500 ease-out group-hover:opacity-0"
                                 loading="lazy"
                             />
 
@@ -112,20 +112,25 @@ onMounted(() => {
                             <img
                                 :src="member.hobbyImage"
                                 :alt="`${member.name} - ${member.hobby}`"
-                                class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                                class="absolute inset-0 h-full w-full object-cover opacity-0 transition-all duration-500 ease-out group-hover:opacity-100"
                                 loading="lazy"
                             />
 
-                            <!-- Hobby Label (shown on hover) -->
+                            <!-- Hobby Badge (appears on hover) -->
                             <div
-                                class="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100"
+                                class="absolute right-3 top-3 translate-x-2 -translate-y-2 scale-90 opacity-0 transition-all duration-500 ease-out group-hover:translate-x-0 group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100"
                             >
-                                <span
-                                    class="glass inline-block rounded-full px-3 py-1 font-sans text-xs font-bold uppercase tracking-wider text-agency-cream"
+                                <div
+                                    class="rounded-full border-2 border-agency-cream bg-agency-navy px-4 py-2 shadow-xl"
                                 >
-                                    {{ member.hobby }}
-                                </span>
+                                    <span
+                                        class="font-sans text-xs font-bold uppercase tracking-wider text-agency-electric"
+                                    >
+                                        {{ member.hobby }}
+                                    </span>
+                                </div>
                             </div>
+
                         </div>
 
                         <!-- Info Section -->
