@@ -759,8 +759,9 @@ const closeCard = () => {
 /* Bouton de fermeture */
 .close-button {
   position: sticky;
-  top: 16px;
+  top: 24px;
   align-self: flex-end;
+  margin-right: -24px;
   margin-bottom: -48px;
 
   /* Dimensions fixes pour un cercle parfait */
