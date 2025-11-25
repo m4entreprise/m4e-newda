@@ -1,9 +1,9 @@
 <template>
-  <section class="expertises-section bg-agency-navy">
+  <section class="expertises-section bg-agency-navy" style="background-color: hsl(220, 65%, 15%) !important;">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title font-serif">Nos <span class="text-agency-electric italic">Expertises</span></h2>
-        <p class="section-subtitle font-sans">L'excellence digitale à votre service</p>
+        <h2 class="section-title">Nos Expertises</h2>
+        <p class="section-subtitle">L'excellence digitale à votre service</p>
       </div>
 
       <div 
@@ -20,10 +20,6 @@
 
         <!-- Carte 1: Solutions Métiers (2 colonnes) -->
         <div class="expertise-card card-large" data-card="1">
-          <div class="card-background">
-            <img src="/images/expertise-solutions-metiers.png" alt="Solutions Métiers" class="card-image" />
-            <div class="card-overlay"></div>
-          </div>
           <div class="card-content">
             <div class="icon-wrapper">
               <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -33,17 +29,13 @@
                 <rect x="3" y="14" width="7" height="7" />
               </svg>
             </div>
-            <h3 class="card-title font-serif">Solutions Métiers</h3>
-            <p class="card-description font-sans">L'automatisation au service de votre croissance.</p>
+            <h3 class="card-title">Solutions Métiers</h3>
+            <p class="card-description">L'automatisation au service de votre croissance.</p>
           </div>
         </div>
 
         <!-- Carte 2: E-Commerce (1 colonne, 2 rangées) -->
         <div class="expertise-card card-tall" data-card="2">
-          <div class="card-background">
-            <img src="/images/expertise-ecommerce.png" alt="E-Commerce" class="card-image" />
-            <div class="card-overlay"></div>
-          </div>
           <div class="card-content">
             <div class="icon-wrapper">
               <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -52,17 +44,13 @@
                 <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
               </svg>
             </div>
-            <h3 class="card-title font-serif">E-Commerce</h3>
-            <p class="card-description font-sans">Des boutiques conçues pour convertir.</p>
+            <h3 class="card-title">E-Commerce</h3>
+            <p class="card-description">Des boutiques conçues pour convertir.</p>
           </div>
         </div>
 
         <!-- Carte 3: Sites Vitrines -->
         <div class="expertise-card card-medium" data-card="3">
-          <div class="card-background">
-            <img src="/images/expertise-sites-vitrines.png" alt="Sites Vitrines" class="card-image" />
-            <div class="card-overlay"></div>
-          </div>
           <div class="card-content">
             <div class="icon-wrapper">
               <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -70,25 +58,21 @@
                 <circle cx="12" cy="12" r="3" />
               </svg>
             </div>
-            <h3 class="card-title font-serif">Sites Vitrines</h3>
-            <p class="card-description font-sans">Votre identité, sublimée.</p>
+            <h3 class="card-title">Sites Vitrines</h3>
+            <p class="card-description">Votre identité, sublimée.</p>
           </div>
         </div>
 
         <!-- Carte 4: Google Ads & SEO -->
         <div class="expertise-card card-medium" data-card="4">
-          <div class="card-background">
-            <img src="/images/expertise-google-ads-seo.png" alt="Google Ads & SEO" class="card-image" />
-            <div class="card-overlay"></div>
-          </div>
           <div class="card-content">
             <div class="icon-wrapper">
               <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
               </svg>
             </div>
-            <h3 class="card-title font-serif">Google Ads & SEO</h3>
-            <p class="card-description font-sans">Acquisition & ROI.</p>
+            <h3 class="card-title">Google Ads & SEO</h3>
+            <p class="card-description">Acquisition & ROI.</p>
           </div>
         </div>
       </div>
@@ -169,16 +153,18 @@ const handleMouseLeave = () => {
 }
 
 .section-title {
+  font-family: 'Playfair Display', serif;
   font-size: 4rem;
-  font-weight: 500;
-  color: #ffffff;
+  font-weight: 600;
+  color: hsl(36, 40%, 96%);
   margin: 0 0 16px 0;
   letter-spacing: -0.02em;
 }
 
 .section-subtitle {
+  font-family: 'Inter', sans-serif;
   font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: hsla(36, 40%, 96%, 0.7);
   margin: 0;
   font-weight: 400;
 }
@@ -199,8 +185,8 @@ const handleMouseLeave = () => {
   height: 600px;
   background: radial-gradient(
     circle,
-    rgba(0, 194, 255, 0.15) 0%,
-    rgba(0, 194, 255, 0.05) 30%,
+    rgba(0, 206, 255, 0.12) 0%,
+    rgba(0, 206, 255, 0.04) 30%,
     transparent 70%
   );
   transform: translate(-50%, -50%);
@@ -213,47 +199,15 @@ const handleMouseLeave = () => {
 /* Expertise Cards */
 .expertise-card {
   position: relative;
-  background: rgba(13, 18, 30, 0.6);
+  background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 24px;
   padding: 48px;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 2;
-}
-
-/* Card Background Images */
-.card-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 0;
-}
-
-.card-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.15;
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.card-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(10, 10, 26, 0.85) 0%,
-    rgba(20, 20, 40, 0.75) 100%
-  );
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Card Layouts */
@@ -285,7 +239,7 @@ const handleMouseLeave = () => {
   bottom: 0;
   background: radial-gradient(
     circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(0, 194, 255, 0.08) 0%,
+    rgba(0, 206, 255, 0.08) 0%,
     transparent 50%
   );
   opacity: 0;
@@ -294,25 +248,12 @@ const handleMouseLeave = () => {
 }
 
 .expertise-card:hover {
-  background: rgba(13, 18, 30, 0.8);
-  border-color: rgba(0, 194, 255, 0.3);
+  background: rgba(20, 20, 40, 0.6);
+  border-color: rgba(0, 206, 255, 0.3);
   transform: translateY(-8px);
   box-shadow: 
     0 20px 60px rgba(0, 0, 0, 0.4),
-    0 0 40px rgba(0, 194, 255, 0.05);
-}
-
-.expertise-card:hover .card-image {
-  opacity: 0.35;
-  transform: scale(1.05);
-}
-
-.expertise-card:hover .card-overlay {
-  background: linear-gradient(
-    135deg,
-    rgba(10, 10, 26, 0.7) 0%,
-    rgba(20, 20, 40, 0.6) 100%
-  );
+    0 0 40px rgba(0, 206, 255, 0.1);
 }
 
 .expertise-card:hover::before {
@@ -335,7 +276,7 @@ const handleMouseLeave = () => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 194, 255, 0.1);
+  background: rgba(0, 206, 255, 0.1);
   border-radius: 20px;
   margin-bottom: 24px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -344,33 +285,35 @@ const handleMouseLeave = () => {
 .card-icon {
   width: 40px;
   height: 40px;
-  color: #00c2ff;
+  color: hsl(195, 100%, 50%);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .expertise-card:hover .icon-wrapper {
-  background: rgba(0, 194, 255, 0.2);
+  background: rgba(0, 206, 255, 0.15);
   transform: scale(1.1);
 }
 
 .expertise-card:hover .card-icon {
   transform: scale(1.15);
-  color: #4dd0e1;
-  filter: drop-shadow(0 0 8px rgba(0, 194, 255, 0.5));
+  color: hsl(195, 100%, 60%);
+  filter: drop-shadow(0 0 8px rgba(0, 206, 255, 0.5));
 }
 
 .card-title {
+  font-family: 'Playfair Display', serif;
   font-size: 2rem;
   font-weight: 600;
-  color: #ffffff;
+  color: hsl(36, 40%, 96%);
   margin: 0 0 16px 0;
   letter-spacing: -0.01em;
   line-height: 1.2;
 }
 
 .card-description {
+  font-family: 'Inter', sans-serif;
   font-size: 1.125rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: hsla(36, 40%, 96%, 0.8);
   margin: 0;
   line-height: 1.6;
   font-weight: 400;

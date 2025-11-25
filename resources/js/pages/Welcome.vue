@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import AgencySection from '@/components/sections/AgencySection.vue';
+import AboutSection from '@/components/sections/AboutSection.vue';
 import ContactSection from '@/components/sections/ContactSection.vue';
 import ExpertiseSection from '@/components/sections/ExpertiseSection.vue';
 import FooterSection from '@/components/sections/FooterSection.vue';
 import HeroSection from '@/components/sections/HeroSection.vue';
-import PortfolioSection from '@/components/sections/PortfolioSection.vue';
+import PortfolioStackSection from '@/components/sections/PortfolioStackSection.vue';
 import TeamSection from '@/components/sections/TeamSection.vue';
 import MethodSection from '@/components/sections/MethodSection.vue';
 import { Head } from '@inertiajs/vue3';
@@ -33,11 +33,11 @@ withDefaults(
         />
     </Head>
 
-    <div class="overflow-x-hidden">
+    <div class="overflow-visible">
         <HeroSection />
-        <AgencySection />
+        <AboutSection />
         <ExpertiseSection />
-        <PortfolioSection />
+        <PortfolioStackSection />
         <TeamSection />
         <MethodSection />
         <ContactSection />
