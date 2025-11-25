@@ -409,9 +409,10 @@ const closeCard = () => {
   overflow-y: auto;
   background: rgba(13, 18, 30, 0.95);
   border-color: rgba(0, 194, 255, 0.4);
-  box-shadow: 
+  box-shadow:
     0 40px 100px rgba(0, 0, 0, 0.6),
     0 0 60px rgba(0, 194, 255, 0.15);
+  padding: 0 48px 48px 48px;
 }
 
 /* Désactiver le hover sur les cartes inactives */
@@ -537,9 +538,21 @@ const closeCard = () => {
   justify-content: space-between;
 }
 
+/* Ajuster l'espacement pour les cartes actives */
+.expertise-card.is-active .card-content {
+  justify-content: flex-start;
+  padding-top: 0;
+}
+
+.expertise-card.is-active .icon-wrapper {
+  margin-top: 0;
+}
+
 .icon-wrapper {
   width: 80px;
   height: 80px;
+  min-width: 80px;
+  min-height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -547,6 +560,7 @@ const closeCard = () => {
   border-radius: 20px;
   margin-bottom: 24px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
 }
 
 .card-icon {
@@ -745,19 +759,32 @@ const closeCard = () => {
 /* Bouton de fermeture */
 .close-button {
   position: sticky;
-  top: 32px;
+  top: 16px;
   float: right;
   margin-left: auto;
   margin-right: -16px;
+  margin-top: 16px;
   margin-bottom: 16px;
+
+  /* Dimensions fixes pour un cercle parfait */
   width: 48px;
   height: 48px;
-  background: rgba(13, 18, 30, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  min-width: 48px;
+  min-height: 48px;
+
+  /* Forme circulaire parfaite */
   border-radius: 50%;
+
+  /* Centrage de l'icône */
   display: flex;
   align-items: center;
   justify-content: center;
+
+  /* Style par défaut */
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+
+  /* Autres propriétés */
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 100;
@@ -765,6 +792,10 @@ const closeCard = () => {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+  /* Empêcher la déformation */
+  flex-shrink: 0;
+  padding: 0;
 }
 
 .close-button svg {
@@ -772,13 +803,13 @@ const closeCard = () => {
   height: 20px;
   color: rgba(255, 255, 255, 0.9);
   transition: all 0.3s ease;
+  flex-shrink: 0;
 }
 
 .close-button:hover {
-  background: rgba(255, 77, 77, 0.95);
-  border-color: rgba(255, 77, 77, 0.8);
+  background: rgba(255, 255, 255, 0.2);
   transform: rotate(90deg) scale(1.15);
-  box-shadow: 0 6px 20px rgba(255, 77, 77, 0.4);
+  box-shadow: 0 6px 20px rgba(0, 194, 255, 0.4);
 }
 
 .close-button:hover svg {
