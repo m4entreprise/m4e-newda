@@ -406,12 +406,18 @@ const closeCard = () => {
   height: 100% !important;
   z-index: 1000;
   cursor: default;
-  overflow-y: auto;
+  overflow: hidden;
   background: rgba(13, 18, 30, 0.95);
   border-color: rgba(0, 194, 255, 0.4);
   box-shadow:
     0 40px 100px rgba(0, 0, 0, 0.6),
     0 0 60px rgba(0, 194, 255, 0.15);
+  padding: 0;
+}
+
+.expertise-card.is-active .card-content {
+  overflow-y: auto;
+  height: 100%;
   padding: 0 48px 48px 48px;
 }
 
@@ -836,21 +842,21 @@ const closeCard = () => {
 }
 
 /* Scrollbar personnalisée pour les cartes actives */
-.expertise-card.is-active::-webkit-scrollbar {
+.expertise-card.is-active .card-content::-webkit-scrollbar {
   width: 8px;
 }
 
-.expertise-card.is-active::-webkit-scrollbar-track {
+.expertise-card.is-active .card-content::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 4px;
 }
 
-.expertise-card.is-active::-webkit-scrollbar-thumb {
+.expertise-card.is-active .card-content::-webkit-scrollbar-thumb {
   background: rgba(0, 194, 255, 0.3);
   border-radius: 4px;
 }
 
-.expertise-card.is-active::-webkit-scrollbar-thumb:hover {
+.expertise-card.is-active .card-content::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 194, 255, 0.5);
 }
 </style>
