@@ -9,6 +9,7 @@
       <div 
         ref="gridContainer"
         class="bento-grid"
+        :class="{ 'has-active-card': activeCard !== null }"
         @mousemove="handleMouseMove"
         @mouseleave="handleMouseLeave"
       >
@@ -19,7 +20,15 @@
         ></div>
 
         <!-- Carte 1: Solutions Métiers (2 colonnes) -->
-        <div class="expertise-card card-large" data-card="1">
+        <div 
+          class="expertise-card card-large" 
+          :class="{ 
+            'is-active': activeCard === 1, 
+            'is-inactive': activeCard !== null && activeCard !== 1 
+          }"
+          data-card="1"
+          @click="openCard(1)"
+        >
           <div class="card-background">
             <img src="/images/expertise-solutions-metiers.png" alt="Solutions Métiers" class="card-image" />
             <div class="card-overlay"></div>
@@ -35,11 +44,47 @@
             </div>
             <h3 class="card-title font-serif">Solutions Métiers</h3>
             <p class="card-description font-sans">L'automatisation au service de votre croissance.</p>
+            
+            <!-- Contenu détaillé (visible uniquement quand la carte est active) -->
+            <div v-if="activeCard === 1" class="card-details">
+              <div class="details-content">
+                <h4 class="details-title font-serif">Transformez votre entreprise</h4>
+                <p class="details-text font-sans">
+                  Nous concevons des solutions métiers sur mesure qui automatisent vos processus, 
+                  optimisent vos workflows et libèrent le potentiel de vos équipes. De la gestion 
+                  de projet aux outils de collaboration, en passant par les systèmes CRM et ERP, 
+                  nous créons des plateformes qui s'adaptent à vos besoins spécifiques.
+                </p>
+                <ul class="details-list font-sans">
+                  <li>✓ Applications métiers personnalisées</li>
+                  <li>✓ Intégration API & systèmes existants</li>
+                  <li>✓ Automatisation des processus</li>
+                  <li>✓ Tableaux de bord analytiques</li>
+                  <li>✓ Formation & accompagnement</li>
+                </ul>
+              </div>
+            </div>
           </div>
+          
+          <!-- Bouton de fermeture -->
+          <button v-if="activeCard === 1" @click.stop="closeCard" class="close-button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
         </div>
 
         <!-- Carte 2: E-Commerce (1 colonne, 2 rangées) -->
-        <div class="expertise-card card-tall" data-card="2">
+        <div 
+          class="expertise-card card-tall" 
+          :class="{ 
+            'is-active': activeCard === 2, 
+            'is-inactive': activeCard !== null && activeCard !== 2 
+          }"
+          data-card="2"
+          @click="openCard(2)"
+        >
           <div class="card-background">
             <img src="/images/expertise-ecommerce.png" alt="E-Commerce" class="card-image" />
             <div class="card-overlay"></div>
@@ -54,11 +99,48 @@
             </div>
             <h3 class="card-title font-serif">E-Commerce</h3>
             <p class="card-description font-sans">Des boutiques conçues pour convertir.</p>
+            
+            <!-- Contenu détaillé -->
+            <div v-if="activeCard === 2" class="card-details">
+              <div class="details-content">
+                <h4 class="details-title font-serif">Vendez plus, vendez mieux</h4>
+                <p class="details-text font-sans">
+                  Créez une expérience d'achat exceptionnelle avec nos solutions e-commerce 
+                  performantes. De la conception UX/UI à l'optimisation du tunnel de conversion, 
+                  nous construisons des boutiques en ligne qui transforment vos visiteurs en clients 
+                  fidèles. Shopify, WooCommerce, ou solutions sur mesure : nous maîtrisons toutes 
+                  les plateformes.
+                </p>
+                <ul class="details-list font-sans">
+                  <li>✓ Boutiques Shopify & WooCommerce</li>
+                  <li>✓ Solutions e-commerce sur mesure</li>
+                  <li>✓ Optimisation du taux de conversion</li>
+                  <li>✓ Intégration paiement & logistique</li>
+                  <li>✓ Marketing automation</li>
+                </ul>
+              </div>
+            </div>
           </div>
+          
+          <!-- Bouton de fermeture -->
+          <button v-if="activeCard === 2" @click.stop="closeCard" class="close-button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
         </div>
 
         <!-- Carte 3: Sites Vitrines -->
-        <div class="expertise-card card-medium" data-card="3">
+        <div 
+          class="expertise-card card-medium" 
+          :class="{ 
+            'is-active': activeCard === 3, 
+            'is-inactive': activeCard !== null && activeCard !== 3 
+          }"
+          data-card="3"
+          @click="openCard(3)"
+        >
           <div class="card-background">
             <img src="/images/expertise-sites-vitrines.png" alt="Sites Vitrines" class="card-image" />
             <div class="card-overlay"></div>
@@ -72,11 +154,47 @@
             </div>
             <h3 class="card-title font-serif">Sites Vitrines</h3>
             <p class="card-description font-sans">Votre identité, sublimée.</p>
+            
+            <!-- Contenu détaillé -->
+            <div v-if="activeCard === 3" class="card-details">
+              <div class="details-content">
+                <h4 class="details-title font-serif">Votre vitrine digitale</h4>
+                <p class="details-text font-sans">
+                  Faites une première impression mémorable avec un site vitrine qui reflète 
+                  parfaitement votre identité de marque. Design moderne, animations subtiles, 
+                  performance optimale et SEO intégré : nous créons des sites qui captivent 
+                  vos visiteurs et renforcent votre crédibilité.
+                </p>
+                <ul class="details-list font-sans">
+                  <li>✓ Design sur mesure & responsive</li>
+                  <li>✓ Animations & micro-interactions</li>
+                  <li>✓ Performance & SEO optimisés</li>
+                  <li>✓ CMS intuitif (WordPress, Strapi...)</li>
+                  <li>✓ Maintenance & évolutions</li>
+                </ul>
+              </div>
+            </div>
           </div>
+          
+          <!-- Bouton de fermeture -->
+          <button v-if="activeCard === 3" @click.stop="closeCard" class="close-button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
         </div>
 
         <!-- Carte 4: Google Ads & SEO -->
-        <div class="expertise-card card-medium" data-card="4">
+        <div 
+          class="expertise-card card-medium" 
+          :class="{ 
+            'is-active': activeCard === 4, 
+            'is-inactive': activeCard !== null && activeCard !== 4 
+          }"
+          data-card="4"
+          @click="openCard(4)"
+        >
           <div class="card-background">
             <img src="/images/expertise-google-ads-seo.png" alt="Google Ads & SEO" class="card-image" />
             <div class="card-overlay"></div>
@@ -89,7 +207,35 @@
             </div>
             <h3 class="card-title font-serif">Google Ads & SEO</h3>
             <p class="card-description font-sans">Acquisition & ROI.</p>
+            
+            <!-- Contenu détaillé -->
+            <div v-if="activeCard === 4" class="card-details">
+              <div class="details-content">
+                <h4 class="details-title font-serif">Soyez visible, soyez trouvé</h4>
+                <p class="details-text font-sans">
+                  Dominez les résultats de recherche et maximisez votre retour sur investissement 
+                  avec nos stratégies d'acquisition digitale. SEO technique, campagnes Google Ads 
+                  optimisées, et analytics avancés : nous transformons le trafic en opportunités 
+                  commerciales concrètes.
+                </p>
+                <ul class="details-list font-sans">
+                  <li>✓ Audit SEO & stratégie de contenu</li>
+                  <li>✓ Optimisation technique & on-page</li>
+                  <li>✓ Campagnes Google Ads performantes</li>
+                  <li>✓ Tracking & analytics avancés</li>
+                  <li>✓ Reporting & optimisation continue</li>
+                </ul>
+              </div>
+            </div>
           </div>
+          
+          <!-- Bouton de fermeture -->
+          <button v-if="activeCard === 4" @click.stop="closeCard" class="close-button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
         </div>
       </div>
     </div>
@@ -103,9 +249,10 @@ const gridContainer = ref(null);
 const mouseX = ref(0);
 const mouseY = ref(0);
 const isHovering = ref(false);
+const activeCard = ref(null);
 
 const spotlightStyle = computed(() => {
-  if (!isHovering.value) {
+  if (!isHovering.value || activeCard.value !== null) {
     return {
       opacity: 0
     };
@@ -119,7 +266,7 @@ const spotlightStyle = computed(() => {
 });
 
 const handleMouseMove = (event) => {
-  if (!gridContainer.value) return;
+  if (!gridContainer.value || activeCard.value !== null) return;
 
   const rect = gridContainer.value.getBoundingClientRect();
   mouseX.value = event.clientX - rect.left;
@@ -129,6 +276,16 @@ const handleMouseMove = (event) => {
 
 const handleMouseLeave = () => {
   isHovering.value = false;
+};
+
+const openCard = (cardId) => {
+  if (activeCard.value === null) {
+    activeCard.value = cardId;
+  }
+};
+
+const closeCard = () => {
+  activeCard.value = null;
 };
 </script>
 
@@ -212,7 +369,7 @@ const handleMouseLeave = () => {
 
 /* Expertise Cards */
 .expertise-card {
-  position: relative;
+  position: absolute;
   background: rgba(13, 18, 30, 0.6);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -220,8 +377,49 @@ const handleMouseLeave = () => {
   border-radius: 24px;
   padding: 48px;
   overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 
+    width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+    height 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+    top 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+    left 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 2;
+  cursor: pointer;
+}
+
+/* État inactif - cartes qui se réduisent */
+.expertise-card.is-inactive {
+  opacity: 0;
+  transform: scale(0.9);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* État actif - carte qui s'agrandit pour occuper toute la grille */
+.expertise-card.is-active {
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 1000;
+  cursor: default;
+  overflow-y: auto;
+  background: rgba(13, 18, 30, 0.95);
+  border-color: rgba(0, 194, 255, 0.4);
+  box-shadow: 
+    0 40px 100px rgba(0, 0, 0, 0.6),
+    0 0 60px rgba(0, 194, 255, 0.15);
+}
+
+/* Désactiver le hover sur les cartes inactives */
+.has-active-card .expertise-card:not(.is-active):hover {
+  transform: scale(0.9);
+  background: rgba(13, 18, 30, 0.6);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: none;
 }
 
 /* Card Background Images */
@@ -257,22 +455,32 @@ const handleMouseLeave = () => {
 }
 
 /* Card Layouts */
-.card-large {
-  grid-column: span 2;
-  grid-row: span 1;
+.card-large[data-card="1"] {
+  top: 0;
+  left: 0;
+  width: calc(66.666% - 16px);
+  height: 300px;
 }
 
-.card-tall {
-  grid-column: span 1;
-  grid-row: span 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.card-tall[data-card="2"] {
+  top: 0;
+  left: calc(66.666% + 8px);
+  width: calc(33.333% - 16px);
+  height: 624px;
 }
 
-.card-medium {
-  grid-column: span 1;
-  grid-row: span 1;
+.card-medium[data-card="3"] {
+  top: 324px;
+  left: 0;
+  width: calc(33.333% - 16px);
+  height: 300px;
+}
+
+.card-medium[data-card="4"] {
+  top: 324px;
+  left: calc(33.333% + 8px);
+  width: calc(33.333% - 16px);
+  height: 300px;
 }
 
 /* Hover Effects */
@@ -482,5 +690,131 @@ const handleMouseLeave = () => {
 
 .card-content-compact .card-title {
   margin-bottom: 8px;
+}
+
+/* Contenu détaillé (visible uniquement quand la carte est active) */
+.card-details {
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
+}
+
+.details-content {
+  max-width: 800px;
+}
+
+.details-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #00c2ff;
+  margin: 0 0 20px 0;
+  letter-spacing: -0.01em;
+}
+
+.details-text {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.8;
+  margin: 0 0 24px 0;
+}
+
+.details-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.details-list li {
+  font-size: 1.0625rem;
+  color: rgba(255, 255, 255, 0.9);
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.details-list li:last-child {
+  border-bottom: none;
+}
+
+.details-list li:hover {
+  color: #00c2ff;
+  padding-left: 8px;
+}
+
+/* Bouton de fermeture */
+.close-button {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+  animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+}
+
+.close-button svg {
+  width: 20px;
+  height: 20px;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+.close-button:hover {
+  background: rgba(255, 77, 77, 0.2);
+  border-color: rgba(255, 77, 77, 0.4);
+  transform: rotate(90deg);
+}
+
+.close-button:hover svg {
+  color: #ff4d4d;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Scrollbar personnalisée pour les cartes actives */
+.expertise-card.is-active::-webkit-scrollbar {
+  width: 8px;
+}
+
+.expertise-card.is-active::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.expertise-card.is-active::-webkit-scrollbar-thumb {
+  background: rgba(0, 194, 255, 0.3);
+  border-radius: 4px;
+}
+
+.expertise-card.is-active::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 194, 255, 0.5);
 }
 </style>
