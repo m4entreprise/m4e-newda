@@ -7,19 +7,8 @@ export function updateTheme(value: Appearance) {
         return;
     }
 
-    if (value === 'system') {
-        const mediaQueryList = window.matchMedia(
-            '(prefers-color-scheme: dark)',
-        );
-        const systemTheme = mediaQueryList.matches ? 'dark' : 'light';
-
-        document.documentElement.classList.toggle(
-            'dark',
-            systemTheme === 'dark',
-        );
-    } else {
-        document.documentElement.classList.toggle('dark', value === 'dark');
-    }
+    // Force dark mode always
+    document.documentElement.classList.add('dark');
 }
 
 const setCookie = (name: string, value: string, days = 365) => {
@@ -59,37 +48,29 @@ export function initializeTheme() {
         return;
     }
 
-    // Initialize theme from saved preference or default to system...
-    const savedAppearance = getStoredAppearance();
-    updateTheme(savedAppearance || 'system');
-
-    // Set up system theme change listener...
-    mediaQuery()?.addEventListener('change', handleSystemThemeChange);
+    // Force dark mode always
+    updateTheme('dark');
 }
 
-const appearance = ref<Appearance>('system');
+const appearance = ref<Appearance>('dark');
 
 export function useAppearance() {
     onMounted(() => {
-        const savedAppearance = localStorage.getItem(
-            'appearance',
-        ) as Appearance | null;
-
-        if (savedAppearance) {
-            appearance.value = savedAppearance;
-        }
+        // Force dark mode, ignore saved preferences
+        appearance.value = 'dark';
     });
 
     function updateAppearance(value: Appearance) {
-        appearance.value = value;
+        // Force dark mode, ignore any attempts to change
+        appearance.value = 'dark';
 
-        // Store in localStorage for client-side persistence...
-        localStorage.setItem('appearance', value);
+        // Store in localStorage for consistency
+        localStorage.setItem('appearance', 'dark');
 
-        // Store in cookie for SSR...
-        setCookie('appearance', value);
+        // Store in cookie for SSR
+        setCookie('appearance', 'dark');
 
-        updateTheme(value);
+        updateTheme('dark');
     }
 
     return {
