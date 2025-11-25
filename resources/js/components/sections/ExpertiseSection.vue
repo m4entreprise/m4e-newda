@@ -34,6 +34,15 @@
             <div class="card-overlay"></div>
           </div>
           <div class="card-content">
+            <!-- Animation Lottie (visible uniquement quand la carte n'est pas active) -->
+            <DotLottieVue
+              v-if="activeCard !== 1"
+              class="lottie-animation"
+              autoplay
+              loop
+              src="https://lottie.host/5f87f3e3-3b0d-426f-8245-e2b393471acd/Nq5DG5giD8.lottie"
+            />
+
             <!-- Bouton de fermeture -->
             <button v-if="activeCard === 1" @click.stop="closeCard" class="close-button">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -90,6 +99,15 @@
             <div class="card-overlay"></div>
           </div>
           <div class="card-content card-content-compact">
+            <!-- Animation Lottie (visible uniquement quand la carte n'est pas active) -->
+            <DotLottieVue
+              v-if="activeCard !== 2"
+              class="lottie-animation"
+              autoplay
+              loop
+              src="https://lottie.host/5f87f3e3-3b0d-426f-8245-e2b393471acd/Nq5DG5giD8.lottie"
+            />
+
             <!-- Bouton de fermeture -->
             <button v-if="activeCard === 2" @click.stop="closeCard" class="close-button">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -146,6 +164,15 @@
             <div class="card-overlay"></div>
           </div>
           <div class="card-content">
+            <!-- Animation Lottie (visible uniquement quand la carte n'est pas active) -->
+            <DotLottieVue
+              v-if="activeCard !== 3"
+              class="lottie-animation"
+              autoplay
+              loop
+              src="https://lottie.host/5f87f3e3-3b0d-426f-8245-e2b393471acd/Nq5DG5giD8.lottie"
+            />
+
             <!-- Bouton de fermeture -->
             <button v-if="activeCard === 3" @click.stop="closeCard" class="close-button">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -200,6 +227,15 @@
             <div class="card-overlay"></div>
           </div>
           <div class="card-content">
+            <!-- Animation Lottie (visible uniquement quand la carte n'est pas active) -->
+            <DotLottieVue
+              v-if="activeCard !== 4"
+              class="lottie-animation"
+              autoplay
+              loop
+              src="https://lottie.host/5f87f3e3-3b0d-426f-8245-e2b393471acd/Nq5DG5giD8.lottie"
+            />
+
             <!-- Bouton de fermeture -->
             <button v-if="activeCard === 4" @click.stop="closeCard" class="close-button">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -244,6 +280,7 @@
 
 <script setup>
 import { ref, computed } from 'vue';
+import { DotLottieVue } from '@lottiefiles/dotlottie-vue';
 
 const gridContainer = ref(null);
 const mouseX = ref(0);
@@ -760,6 +797,24 @@ const closeCard = () => {
 .details-list li:hover {
   color: #00c2ff;
   padding-left: 8px;
+}
+
+/* Animation Lottie en haut à droite */
+.lottie-animation {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 80px;
+  height: 80px;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+  mix-blend-mode: screen;
+}
+
+.expertise-card:hover .lottie-animation {
+  opacity: 1;
 }
 
 /* Bouton de fermeture */
