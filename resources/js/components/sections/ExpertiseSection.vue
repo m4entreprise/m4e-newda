@@ -34,6 +34,14 @@
             <div class="card-overlay"></div>
           </div>
           <div class="card-content">
+            <!-- Bouton de fermeture -->
+            <button v-if="activeCard === 1" @click.stop="closeCard" class="close-button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+
             <div class="icon-wrapper">
               <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <rect x="3" y="3" width="7" height="7" />
@@ -65,14 +73,6 @@
               </div>
             </div>
           </div>
-          
-          <!-- Bouton de fermeture -->
-          <button v-if="activeCard === 1" @click.stop="closeCard" class="close-button">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
         </div>
 
         <!-- Carte 2: E-Commerce (1 colonne, 2 rangées) -->
@@ -90,6 +90,14 @@
             <div class="card-overlay"></div>
           </div>
           <div class="card-content card-content-compact">
+            <!-- Bouton de fermeture -->
+            <button v-if="activeCard === 2" @click.stop="closeCard" class="close-button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+
             <div class="icon-wrapper">
               <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <circle cx="9" cy="21" r="1" />
@@ -121,14 +129,6 @@
               </div>
             </div>
           </div>
-          
-          <!-- Bouton de fermeture -->
-          <button v-if="activeCard === 2" @click.stop="closeCard" class="close-button">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
         </div>
 
         <!-- Carte 3: Sites Vitrines -->
@@ -146,6 +146,14 @@
             <div class="card-overlay"></div>
           </div>
           <div class="card-content">
+            <!-- Bouton de fermeture -->
+            <button v-if="activeCard === 3" @click.stop="closeCard" class="close-button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+
             <div class="icon-wrapper">
               <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
@@ -175,14 +183,6 @@
               </div>
             </div>
           </div>
-          
-          <!-- Bouton de fermeture -->
-          <button v-if="activeCard === 3" @click.stop="closeCard" class="close-button">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
         </div>
 
         <!-- Carte 4: Google Ads & SEO -->
@@ -200,6 +200,14 @@
             <div class="card-overlay"></div>
           </div>
           <div class="card-content">
+            <!-- Bouton de fermeture -->
+            <button v-if="activeCard === 4" @click.stop="closeCard" class="close-button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+
             <div class="icon-wrapper">
               <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
@@ -228,14 +236,6 @@
               </div>
             </div>
           </div>
-          
-          <!-- Bouton de fermeture -->
-          <button v-if="activeCard === 4" @click.stop="closeCard" class="close-button">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
         </div>
       </div>
     </div>
@@ -744,38 +744,45 @@ const closeCard = () => {
 
 /* Bouton de fermeture */
 .close-button {
-  position: absolute;
+  position: sticky;
   top: 32px;
-  right: 32px;
+  float: right;
+  margin-left: auto;
+  margin-right: -16px;
+  margin-bottom: 16px;
   width: 48px;
   height: 48px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(13, 18, 30, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 10;
+  z-index: 100;
   animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .close-button svg {
   width: 20px;
   height: 20px;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
   transition: all 0.3s ease;
 }
 
 .close-button:hover {
-  background: rgba(255, 77, 77, 0.2);
-  border-color: rgba(255, 77, 77, 0.4);
-  transform: rotate(90deg);
+  background: rgba(255, 77, 77, 0.95);
+  border-color: rgba(255, 77, 77, 0.8);
+  transform: rotate(90deg) scale(1.15);
+  box-shadow: 0 6px 20px rgba(255, 77, 77, 0.4);
 }
 
 .close-button:hover svg {
-  color: #ff4d4d;
+  color: #ffffff;
 }
 
 /* Animations */
