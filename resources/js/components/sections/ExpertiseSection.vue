@@ -20,14 +20,16 @@
         ></div>
 
         <!-- Carte 1: Solutions Métiers (2 colonnes) -->
-        <div 
-          class="expertise-card card-large" 
-          :class="{ 
-            'is-active': activeCard === 1, 
-            'is-inactive': activeCard !== null && activeCard !== 1 
+        <div
+          class="expertise-card card-large"
+          :class="{
+            'is-active': activeCard === 1,
+            'is-inactive': activeCard !== null && activeCard !== 1
           }"
           data-card="1"
           @click="openCard(1)"
+          @mouseenter="handleCardEnter(0)"
+          @mouseleave="handleCardLeave(0)"
         >
           <div class="card-background">
             <img src="/images/expertise-solutions-metiers.png" alt="Solutions Métiers" class="card-image" />
@@ -35,13 +37,15 @@
           </div>
           <div class="card-content">
             <!-- Animation Lottie (visible uniquement quand la carte n'est pas active) -->
-            <DotLottieVue
-              v-if="activeCard !== 1"
-              class="lottie-animation"
-              autoplay
-              loop
-              src="https://lottie.host/5f87f3e3-3b0d-426f-8245-e2b393471acd/Nq5DG5giD8.lottie"
-            />
+            <Transition name="lottie-fade">
+              <DotLottieVue
+                v-if="activeCard !== 1 && lottieVisible[0]"
+                class="lottie-animation"
+                autoplay
+                loop
+                src="https://lottie.host/5f87f3e3-3b0d-426f-8245-e2b393471acd/Nq5DG5giD8.lottie"
+              />
+            </Transition>
 
             <!-- Bouton de fermeture -->
             <button v-if="activeCard === 1" @click.stop="closeCard" class="close-button">
@@ -85,14 +89,16 @@
         </div>
 
         <!-- Carte 2: E-Commerce (1 colonne, 2 rangées) -->
-        <div 
-          class="expertise-card card-tall" 
-          :class="{ 
-            'is-active': activeCard === 2, 
-            'is-inactive': activeCard !== null && activeCard !== 2 
+        <div
+          class="expertise-card card-tall"
+          :class="{
+            'is-active': activeCard === 2,
+            'is-inactive': activeCard !== null && activeCard !== 2
           }"
           data-card="2"
           @click="openCard(2)"
+          @mouseenter="handleCardEnter(1)"
+          @mouseleave="handleCardLeave(1)"
         >
           <div class="card-background">
             <img src="/images/expertise-ecommerce.png" alt="E-Commerce" class="card-image" />
@@ -100,13 +106,15 @@
           </div>
           <div class="card-content card-content-compact">
             <!-- Animation Lottie (visible uniquement quand la carte n'est pas active) -->
-            <DotLottieVue
-              v-if="activeCard !== 2"
-              class="lottie-animation"
-              autoplay
-              loop
-              src="https://lottie.host/5f87f3e3-3b0d-426f-8245-e2b393471acd/Nq5DG5giD8.lottie"
-            />
+            <Transition name="lottie-fade">
+              <DotLottieVue
+                v-if="activeCard !== 2 && lottieVisible[1]"
+                class="lottie-animation"
+                autoplay
+                loop
+                src="https://lottie.host/5f87f3e3-3b0d-426f-8245-e2b393471acd/Nq5DG5giD8.lottie"
+              />
+            </Transition>
 
             <!-- Bouton de fermeture -->
             <button v-if="activeCard === 2" @click.stop="closeCard" class="close-button">
@@ -150,14 +158,16 @@
         </div>
 
         <!-- Carte 3: Sites Vitrines -->
-        <div 
-          class="expertise-card card-medium" 
-          :class="{ 
-            'is-active': activeCard === 3, 
-            'is-inactive': activeCard !== null && activeCard !== 3 
+        <div
+          class="expertise-card card-medium"
+          :class="{
+            'is-active': activeCard === 3,
+            'is-inactive': activeCard !== null && activeCard !== 3
           }"
           data-card="3"
           @click="openCard(3)"
+          @mouseenter="handleCardEnter(2)"
+          @mouseleave="handleCardLeave(2)"
         >
           <div class="card-background">
             <img src="/images/expertise-sites-vitrines.png" alt="Sites Vitrines" class="card-image" />
@@ -165,13 +175,15 @@
           </div>
           <div class="card-content">
             <!-- Animation Lottie (visible uniquement quand la carte n'est pas active) -->
-            <DotLottieVue
-              v-if="activeCard !== 3"
-              class="lottie-animation"
-              autoplay
-              loop
-              src="https://lottie.host/5f87f3e3-3b0d-426f-8245-e2b393471acd/Nq5DG5giD8.lottie"
-            />
+            <Transition name="lottie-fade">
+              <DotLottieVue
+                v-if="activeCard !== 3 && lottieVisible[2]"
+                class="lottie-animation"
+                autoplay
+                loop
+                src="https://lottie.host/5f87f3e3-3b0d-426f-8245-e2b393471acd/Nq5DG5giD8.lottie"
+              />
+            </Transition>
 
             <!-- Bouton de fermeture -->
             <button v-if="activeCard === 3" @click.stop="closeCard" class="close-button">
@@ -213,14 +225,16 @@
         </div>
 
         <!-- Carte 4: Google Ads & SEO -->
-        <div 
-          class="expertise-card card-medium" 
-          :class="{ 
-            'is-active': activeCard === 4, 
-            'is-inactive': activeCard !== null && activeCard !== 4 
+        <div
+          class="expertise-card card-medium"
+          :class="{
+            'is-active': activeCard === 4,
+            'is-inactive': activeCard !== null && activeCard !== 4
           }"
           data-card="4"
           @click="openCard(4)"
+          @mouseenter="handleCardEnter(3)"
+          @mouseleave="handleCardLeave(3)"
         >
           <div class="card-background">
             <img src="/images/expertise-google-ads-seo.png" alt="Google Ads & SEO" class="card-image" />
@@ -228,13 +242,15 @@
           </div>
           <div class="card-content">
             <!-- Animation Lottie (visible uniquement quand la carte n'est pas active) -->
-            <DotLottieVue
-              v-if="activeCard !== 4"
-              class="lottie-animation"
-              autoplay
-              loop
-              src="https://lottie.host/5f87f3e3-3b0d-426f-8245-e2b393471acd/Nq5DG5giD8.lottie"
-            />
+            <Transition name="lottie-fade">
+              <DotLottieVue
+                v-if="activeCard !== 4 && lottieVisible[3]"
+                class="lottie-animation"
+                autoplay
+                loop
+                src="https://lottie.host/5f87f3e3-3b0d-426f-8245-e2b393471acd/Nq5DG5giD8.lottie"
+              />
+            </Transition>
 
             <!-- Bouton de fermeture -->
             <button v-if="activeCard === 4" @click.stop="closeCard" class="close-button">
@@ -287,6 +303,8 @@ const mouseX = ref(0);
 const mouseY = ref(0);
 const isHovering = ref(false);
 const activeCard = ref(null);
+const lottieVisible = ref([false, false, false, false]);
+const lottieAnimationComplete = ref(false);
 
 const spotlightStyle = computed(() => {
   if (!isHovering.value || activeCard.value !== null) {
@@ -324,6 +342,51 @@ const openCard = (cardId) => {
 const closeCard = () => {
   activeCard.value = null;
 };
+
+// Animation séquentielle des Lottie au montage du composant
+const startLottieSequence = async () => {
+  // Attendre 500ms avant de commencer
+  await new Promise(resolve => setTimeout(resolve, 500));
+
+  // Ordre d'apparition: Solutions Métiers (0), Sites Vitrines (2), Google Ads (3), E-Commerce (1)
+  const order = [0, 2, 3, 1];
+
+  // Apparition séquentielle dans l'ordre visuel
+  for (const index of order) {
+    lottieVisible.value[index] = true;
+    await new Promise(resolve => setTimeout(resolve, 300));
+  }
+
+  // Attendre 2 secondes
+  await new Promise(resolve => setTimeout(resolve, 2000));
+
+  // Disparition séquentielle dans le même ordre
+  for (const index of order) {
+    lottieVisible.value[index] = false;
+    await new Promise(resolve => setTimeout(resolve, 300));
+  }
+
+  lottieAnimationComplete.value = true;
+};
+
+// Méthodes pour gérer le survol des cartes
+const handleCardEnter = (cardIndex) => {
+  if (lottieAnimationComplete.value) {
+    lottieVisible.value[cardIndex] = true;
+  }
+};
+
+const handleCardLeave = (cardIndex) => {
+  if (lottieAnimationComplete.value) {
+    lottieVisible.value[cardIndex] = false;
+  }
+};
+
+// Démarrer l'animation au montage
+import { onMounted } from 'vue';
+onMounted(() => {
+  startLottieSequence();
+});
 </script>
 
 <style scoped>
@@ -808,13 +871,43 @@ const closeCard = () => {
   height: 80px;
   z-index: 10;
   pointer-events: none;
-  opacity: 0.9;
-  transition: opacity 0.3s ease;
   mix-blend-mode: screen;
+}
+
+/* Transitions Vue pour le fade in/out */
+.lottie-fade-enter-active {
+  animation: lottieAppear 0.5s ease forwards;
+}
+
+.lottie-fade-leave-active {
+  animation: lottieDisappear 0.5s ease forwards;
+}
+
+@keyframes lottieAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(-10deg);
+  }
+  100% {
+    opacity: 0.9;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes lottieDisappear {
+  0% {
+    opacity: 0.9;
+    transform: scale(1) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5) rotate(10deg);
+  }
 }
 
 .expertise-card:hover .lottie-animation {
   opacity: 1;
+  transform: scale(1.1);
 }
 
 /* Bouton de fermeture */
