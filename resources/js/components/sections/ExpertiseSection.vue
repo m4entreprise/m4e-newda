@@ -44,7 +44,7 @@
             <img src="/images/expertise-ecommerce.png" alt="E-Commerce" class="card-image" />
             <div class="card-overlay"></div>
           </div>
-          <div class="card-content">
+          <div class="card-content card-content-compact">
             <div class="icon-wrapper">
               <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <circle cx="9" cy="21" r="1" />
@@ -469,5 +469,18 @@ const handleMouseLeave = () => {
     padding: 24px;
     min-height: 240px;
   }
+}
+
+/* Compact Card Content (E-Commerce) */
+.card-content-compact {
+  justify-content: flex-end;
+}
+
+.card-content-compact .icon-wrapper {
+  margin-bottom: 16px;
+}
+
+.card-content-compact .card-title {
+  margin-bottom: 8px;
 }
 </style>

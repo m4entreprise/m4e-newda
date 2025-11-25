@@ -78,7 +78,7 @@ onMounted(() => {
                             href="https://www.linkedin.com/company/m4-entreprise"
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="flex h-10 w-10 items-center justify-center rounded-full border border-agency-navy/20 text-agency-navy transition-all hover:border-agency-electric hover:bg-agency-electric hover:text-white"
+                            class="flex h-10 w-10 items-center justify-center rounded-full border border-agency-navy/20 text-agency-navy transition-all hover:border-[#00BFFF] hover:bg-[#00BFFF] hover:text-white"
                             aria-label="LinkedIn"
                         >
                             <span class="font-sans text-sm font-bold">in</span>
@@ -87,7 +87,7 @@ onMounted(() => {
                             href="https://www.facebook.com/profile.php?id=61555838617465"
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="flex h-10 w-10 items-center justify-center rounded-full border border-agency-navy/20 text-agency-navy transition-all hover:border-agency-electric hover:bg-agency-electric hover:text-white"
+                            class="flex h-10 w-10 items-center justify-center rounded-full border border-agency-navy/20 text-agency-navy transition-all hover:border-[#00BFFF] hover:bg-[#00BFFF] hover:text-white"
                             aria-label="Facebook"
                         >
                             <span class="font-sans text-sm font-bold">fb</span>
@@ -96,7 +96,7 @@ onMounted(() => {
                             href="https://www.instagram.com/m4entreprise.be/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="flex h-10 w-10 items-center justify-center rounded-full border border-agency-navy/20 text-agency-navy transition-all hover:border-agency-electric hover:bg-agency-electric hover:text-white"
+                            class="flex h-10 w-10 items-center justify-center rounded-full border border-agency-navy/20 text-agency-navy transition-all hover:border-[#00BFFF] hover:bg-[#00BFFF] hover:text-white"
                             aria-label="Instagram"
                         >
                             <span class="font-sans text-sm font-bold">IG</span>
