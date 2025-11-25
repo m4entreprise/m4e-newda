@@ -70,20 +70,7 @@ onMounted(() => {
                 </p>
             </div>
 
-            <!-- Group Photo -->
-            <div class="mb-16">
-                <div
-                    class="overflow-hidden rounded-2xl shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
-                >
-                    <img
-                        src="/images/team-group.jpg"
-                        alt="Notre équipe"
-                        class="h-auto w-full object-cover"
-                        style="max-height: 500px"
-                        loading="lazy"
-                    />
-                </div>
-            </div>
+
 
             <!-- Individual Portraits -->
             <div
