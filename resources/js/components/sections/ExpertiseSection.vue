@@ -541,7 +541,7 @@ const closeCard = () => {
 /* Ajuster l'espacement pour les cartes actives */
 .expertise-card.is-active .card-content {
   justify-content: flex-start;
-  padding-top: 0;
+  padding-top: 24px;
 }
 
 .expertise-card.is-active .icon-wrapper {
@@ -760,11 +760,8 @@ const closeCard = () => {
 .close-button {
   position: sticky;
   top: 16px;
-  float: right;
-  margin-left: auto;
-  margin-right: -16px;
-  margin-top: 16px;
-  margin-bottom: 16px;
+  align-self: flex-end;
+  margin-bottom: -48px;
 
   /* Dimensions fixes pour un cercle parfait */
   width: 48px;
